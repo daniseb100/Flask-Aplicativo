@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+{% include "navbar.html" %}
+{% block content %}
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,800');
+.error-container {
+  text-align: center;
+  font-size: 180px;
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 800;
+  margin: 20px 15px;
+}
+.error-container > span {
+  display: inline-block;
+  line-height: 0.7;
+  position: relative;
+  color: #FFB485;
+}
+.error-container > span {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.error-container > span:nth-of-type(1) {
+  color: #D1F2A5;
+  animation: colordancing 4s infinite;
+}
+.error-container > span:nth-of-type(3) {
+  color: #F56991;
+  animation: colordancing2 4s infinite;
+}
+.error-container > span:nth-of-type(2) {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+}
+
+.error-container > span:nth-of-type(2):before {
+  -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+      transform: rotate(45deg);
+}
+
+.screen-reader-text {
+    position: absolute;
+    top: -9999em;
+    left: -9999em;
+}
+@keyframes shadowsdancing {
+  
+}
+@keyframes colordancing {
+  0% {
+    color: #D1F2A5;
+  }
+  25% {
+    color: #F56991;
+  }
+  50% {
+    color: #FFC48C;
+  }
+  75% {
+    color: #EFFAB4;
+  }
+  100% {
+    color: #D1F2A5;
+  }
+}
+@keyframes colordancing2 {
+  0% {
+    color: #FFC48C;
+  }
+  25% {
+    color: #EFFAB4;
+  }
+  50% {
+    color: #D1F2A5;
+  }
+  75% {
+    color: #F56991;
+  }
+  100% {
+    color: #FFC48C;
+  }
+}
+
+/* demo stuff */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+  background-color: #ffffff;
+  margin-bottom: 50px;
+}
+html, button, input, select, textarea {
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    color: #92a4ad;
+}
+h1 {
+  text-align: center;
+  margin: 30px 15px;
+}
+.zoom-area { 
+  max-width: 490px;
+  margin: 30px auto 30px;
+  font-size: 19px;
+  text-align: center;
+}
+.link-container {
+  text-align: center;
+}
+a.more-link {
+  text-transform: uppercase;
+  font-size: 13px;
+    background-color: #92a4ad;
+    padding: 10px 15px;
+    border-radius: 0;
+    color: #ffffff;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    text-decoration: none;
+  margin-top: 50px;
+  letter-spacing: 1px;
+}
+
+</style>
+
+<h1>Thanks for your purchase</h1>
+<section class="error-container">
+  <span>G</span>
+  <span>R</span>
+  <span>A</span>
+  <span>C</span>
+  <span>I</span>
+  <span>A</span>
+  <span>S</span>
+
+</section>
+<div class="link-container">
+   <input style="font-size: 120%;" class="btn btn-info" type="button" onclick="history.back()" name="volver atrás" value="volver atrás"></a>
+  
+</div>
+{% include "footer.html"%}
+{% endblock content %}

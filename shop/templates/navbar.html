@@ -1,0 +1,73 @@
+<style></style>
+<div >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="https://pbs.twimg.com/profile_images/880653353885323265/e80q5Odv_400x400.jpg" alt="100" width="100" style="padding: 0.5%;" ><a  class="navbar-brand" href="/">Movie Shop</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a style="font-size: 120%;" class="btn btn-info" href="/">products <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+              <a style="font-size: 120%;" class="btn btn-info" href="{{url_for('pageabout')}}">About <span class="sr-only">(current)</span></a>
+            </li>
+          
+            <div class="btn-group">
+              <button style="font-size: 120%;" type="button" class="btn btn-info">brand  </button>
+              <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+                {% for brand in brands %}
+                <a class="dropdown-item" href="{{url_for('get_brand', id=brand.id)}}">{{brand.name}}</a>
+                {% endfor %}
+              </div>
+            </div> 
+
+            
+            <div class="btn-group">
+              <button style="font-size: 120%;" type="button" class="btn btn-info">Categories </button>
+              <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+                {% for category in categories %}
+                  <a class="dropdown-item" href="{{url_for('get_category',id=category.id)}}">{{category.name}}</a>
+                  {% endfor %}
+              </div>
+            </div> 
+          </ul>
+            <ul class="navbar-nav ml-auto">  
+             {% if current_user.is_authenticated %}
+             <li class="nav-item">
+              <a style="font-size: 120%;" class="btn btn-info">{{current_user.name}}</a>
+            </li>
+             <li class="nav-item">
+               <a style="font-size: 120%;" href="{{url_for('customer_logout')}}" class="btn btn-info"> logout</a>
+             </li>
+             {% else %}
+             <li class="nav-item">
+              <a style="font-size: 120%;" href="{{url_for('customer_register')}}" class="btn btn-info">Register</a>
+            </li>
+             <li class="nav-item">
+              <a style="font-size: 120%;" href="{{url_for('customerLogin')}}" class="btn btn-info">Login</a>
+            </li>
+            {% endif %}
+              <li class="nav-item">
+                <a style="font-size: 120%;" href="{{url_for('getCart')}}" class="btn btn-info"><i class="fa-solid fa-cart-plus"></i> Shopping cart ({{ session['Shoppingcart']|length }}) </a>
+              </li>
+            </ul> 
+          
+          <form class="form-inline my-2 my-lg-0" action="{{url_for('result')}}">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button style="font-size: 120%;" class="btn btn-info" type="submit">Search</i></button>
+          </form>
+        </div>
+      </nav>
+     
+</div>
+<!---============== END OF NAV BAR ==================-->
